@@ -1,0 +1,45 @@
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    surname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(64) DEFAULT '0',
+    status BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE 
+function (
+    id SERIAL PRIMARY KEY,
+    user_id INT UNIQUE,
+    tel VARCHAR(255) NOT NULL,
+    about VARCHAR(255) DEFAULT ' ',
+    a BOOLEAN DEFAULT FALSE,
+    b BOOLEAN DEFAULT FALSE,
+    c BOOLEAN DEFAULT FALSE,
+    d BOOLEAN DEFAULT FALSE,
+    e BOOLEAN DEFAULT FALSE,
+    f BOOLEAN DEFAULT FALSE,
+    g BOOLEAN DEFAULT FALSE,
+    h BOOLEAN DEFAULT FALSE
+   
+);
+
+
+
+CREATE TABLE img (
+    id INT PRIMARY KEY,
+    user_id INT UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    photo VARCHAR(255) NOT NULL,
+    photo_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE reg(
+    id SERIAL PRIMARY KEY,
+    user_id INT UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    kod  INT NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
